@@ -13,7 +13,7 @@ import com.amazonaws.services.lambda.runtime.Context;
  */
 public class VpcUtilsTest {
 
-    private static Object input;
+    private static LambdaCFNRequest input;
 
     @BeforeClass
     public static void createInput() throws IOException {
@@ -32,12 +32,12 @@ public class VpcUtilsTest {
 
     @Test
     public void testVpcUtils() {
-        VpcUtils handler = new VpcUtils();
+        SubnetCalculator handler = new SubnetCalculator();
         Context ctx = createContext();
 
-        String output = handler.handleRequest(input, ctx);
+        LambdaCFNResponse output = handler.handleRequest(input, ctx);
 
         // TODO: validate output here if needed.
-        Assert.assertEquals("Hello from Lambda!", output);
+        //Assert.assertEquals("Hello from Lambda!", output);
     }
 }

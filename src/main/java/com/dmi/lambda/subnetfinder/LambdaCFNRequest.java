@@ -5,7 +5,7 @@ import java.util.Map;
 public class LambdaCFNRequest {
 	private String ServiceToken;
 	private String RequestType;
-	private String ResponseUrl;
+	private String ResponseURL;
 	private String StackId;
 	private String RequestId;
 	private String ResourceType;
@@ -15,6 +15,26 @@ public class LambdaCFNRequest {
 	private Map<String,String> OldResourceProperties;
 	public LambdaCFNRequest(){
 		
+	}
+	//helper method
+	public void setValue(String key, Object v){
+		String val=(String) v;
+		if(key.equalsIgnoreCase("ServiceToken"))
+			this.ServiceToken=val;
+		else if(key.equalsIgnoreCase("RequestType"))
+			this.RequestType=val;
+		else if(key.equalsIgnoreCase("ResponseURL"))
+			this.ResponseURL=val;
+		else if(key.equalsIgnoreCase("StackId"))
+			this.StackId=val;
+		else if(key.equalsIgnoreCase("RequestId"))
+			this.RequestId=val;
+		else if(key.equalsIgnoreCase("ResourceType"))
+			this.ResourceType=val;
+		else if(key.equalsIgnoreCase("LogicalResourceId"))
+			this.LogicalResourceId=val;
+		else if(key.equalsIgnoreCase("PhysicalResourceId"))
+			this.PhysicalResourceId=val;
 	}
 	public String getServiceToken() {
 		return ServiceToken;
@@ -26,13 +46,13 @@ public class LambdaCFNRequest {
 		return RequestType;
 	}
 	public void setRequestType(String requestType) {
-		RequestType = requestType;
+		this.RequestType = requestType;
 	}
 	public String getResponseUrl() {
-		return ResponseUrl;
+		return ResponseURL;
 	}
-	public void setResponseUR(String responseUR) {
-		ResponseUrl = responseUR;
+	public void setResponseUR(String responseURL) {
+		ResponseURL = responseURL;
 	}
 	public String getStackId() {
 		return StackId;
